@@ -12,13 +12,15 @@ async function personajes() {
       image: entry.character.image?.medium
     }));
     characters.forEach(personaje => {
-contenedorP.innerHTML += 
-`
-<img class = "imagen" src = "${personaje.image}">
-<div class = "personaje">${personaje.character}</div>
-<div class = "actor">${personaje.actor}</div>
-`
+      contenedorP.innerHTML += `
+        <div class="personaje-card">
+          <img class="imagen" src="${personaje.image}">
+          <div class="personaje">${personaje.character}</div>
+          <div class="actor">${personaje.actor}</div>
+        </div>
+      `
     })
+    
   }
   
   async function episodios() {
@@ -34,6 +36,19 @@ contenedorP.innerHTML +=
       imagen: entry.image?.medium
     }));
     console.log(episodes);
+    episodes.forEach(episodio =>{
+      contenedorE.innerHTML += 
+      `
+      <article class="card">
+      <h2 class = "nombre">${episodio.episode}</h2>
+      <img src="${episodio.imagen}">
+      <p class ="temporada"> Temporada: ${episodio.season}</p>
+      <p class = "capitulo"> Capitulo: ${episodio.chapter}</p>
+      <p class ="rating"> Rating: ${episodio.rating}</p>
+      <p class ="descripción">${episodio.descripcion}</p>
+      </article>
+      `
+    })
   }
   
   personajes();
